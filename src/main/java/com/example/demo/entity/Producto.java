@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProducto;
@@ -20,9 +21,8 @@ public class Producto {
     private String descripcion;
     private String categoria;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "proveedor_id")
-    //@JsonBackReference
     private Proveedor proveedor;
 
     @ManyToMany(mappedBy = "productos")

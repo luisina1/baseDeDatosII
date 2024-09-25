@@ -4,22 +4,20 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Proveedor {
+public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idEmpleado;
 
-    private String nombreCompleto;
-    private String contacto;
-    private String direccion;
+    private String nombre;
+    private String puesto;
 
-    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL)
-    private List<Producto> productos;
+    @OneToOne(mappedBy = "empleado", cascade = CascadeType.ALL)
+    private DetalleEmpleado detalle;
 }

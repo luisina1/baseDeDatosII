@@ -11,20 +11,22 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovimientoInventario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idStock;
 
-    private double entrada;
-    private double salida;
+    private Double entrada;
+    private Double salida;
     private LocalDate fecha;
+    private Double stockInicial;
     private Double cantidadDisponible;
 
     @ManyToOne
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
-    public Double calcularCantidadDisponible() {
-        return entrada - salida;
+    public double calcularCantidadDisponible() {
+        return stockInicial - entrada + salida;
     }
 }

@@ -1,9 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.MovimientoInventario;
+import com.example.demo.entity.DetalleEmpleado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface movimientoInRepository extends JpaRepository<MovimientoInventario, Integer>{
+public interface DetalleEmpleadoRepository extends JpaRepository<DetalleEmpleado, Integer> {
 }
